@@ -27,12 +27,34 @@ run_analysis <- function(){
     Total_X <- rbind(TrainX, TestX)
     
     names(Total_S)<- c("subject")
-    names(Total_Y)<- c("activityNum")
+    names(Total_Y)<- c("activity")
     
     dataSubject <- cbind(Total_S, Total_Y)
     dataAll <- cbind(dataSubject, Total_X)
     
+    # set key to the data table
+    
+    setkey(dataAll, subject, activity)
+    
+    # Extract only the mean and standard deviation
+    
+    f <- data.table(read.table(file.path(path, "features.txt")))
+    names(f) <- c("feaNo","feaName")
+    
+    # Extract the mean and std features only
+    
+    f <- f[grepl("mean\\(\\)|std\\(\\)", f$feaName]
+    
+    # Add col stored colname for mapping merged data set 
+    
+    f$feaCode <- f[,paste0("V",f$feaNo)]
+    
+    # Subset these variables using variable names.
+    
+    select <- c(key(dataAll), f$feaCode)
+    dataAll <- dataAll[, select, with = FALSE]
+    
+    # Use descriptive activity names
     
     
     
-}
