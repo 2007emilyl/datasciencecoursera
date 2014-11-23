@@ -150,7 +150,7 @@ Calculate average and assign the tidy date to 2nd data set
     dt1 <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
     
 
-note: to export the data set to .txt
+note: to export the data set to file dt1.txt
 
 write.table(dt1, file = "dt1.txt",row.names = FALSE)
     
