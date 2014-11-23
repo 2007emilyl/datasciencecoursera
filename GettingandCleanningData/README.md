@@ -64,27 +64,88 @@ Set key
 
 Extract only the mean and standard deviation
 --------------------------------------------
-Read the `features.txt` file. This tells which variables in `dataAll` are measurements for the mean and standard deviation.
+Read the `features.txt` file to know which variables in `dataAll` are measurements for the mean and standard deviation
 
     f <- data.table(read.table(file.path(path, "features.txt")))
-    names(f) <- c("feaNo","feaName")
-    f <- f[grepl("mean\\(\\)|std\\(\\)", f$feaName]
+    names(f) <- c("featNo","featName")
+    f1 <- f[grepl("mean\\(\\)|std\\(\\)", f$featName]
     
 Add col stored colname for mapping merged data set 
     
-    f$feaCode <- f[,paste0("V",f$feaNo)]
+    f1$featCode <- f1[,paste0("V",f1$featNo)]
     
-Subset these variables using variable names.
+Subset these variables using variable names
     
-    select <- c(key(dataAll), f$feaCode)
+    select <- c(key(dataAll), f$featCode)
     dataAll <- dataAll[, select, with = FALSE]
-    
+
+
 Use descriptive activity names
-    
+------------------------------
+
     act_label <- data.table(read.table(file.path(path, "activity_labels.txt")))
     names(act_label) <- c("activityNo", "activityName")
-    
+
+
 Label with descriptive activity names
+-------------------------------------
+
+    dataAll <- merge(dataAll, act_label, by = "activityNo", all.x = TRUE)
     
-    dataAll <- merge(dataAll, act_label, by = "activityNum", all.x = TRUE)
-	
+    setkey(dataAll, subject, activityNo, activityName)
+    
+
+Melt the data table to reshape it to a tall and narrow format
+
+    dt <- data.table(melt(dataAll, key(dataAll), variable.name = "featCode"))
+     
+
+Merge features
+
+    dt <- merge(dt, f1[, list(feaNo, feaCode, feaName)], by = "feaCode", all.x = TRUE)
+    
+    
+Seperate features by abstract text from featName 
+    
+    absText <- function(t) {
+            grepl(t, dt$featName)
+    }
+
+A. Feature only with 1 category
+    
+    dt$featJerk <- factor(absText("Jerk"), labels = c(NA, "Jerk"))
+    
+    dt$featMagnitude <- factor(absText("Mag"), labels = c(NA, "Magnitude"))
+    
+B. Feature with 2 categories
+    
+    n <- 2
+    y <- matrix(seq(1, n), nrow = n)
+    
+    x <- matrix(c(absText("^t"), absText("^f")), ncol = nrow(y))
+    dt$featDomain <- factor(x %*% y, labels = c("Time", "Freq"))
+    
+    x <- matrix(c(absText("Acc"), absText("Gyro")), ncol = nrow(y))
+    dt$featInstrument <- factor(x %*% y, labels = c("Accelerometer", "Gyroscope"))
+    
+    x <- matrix(c(absText("BodyAcc"), absText("GravityAcc")), ncol = nrow(y))
+    dt$featAcceleration <- factor(x %*% y, labels = c(NA, "Body", "Gravity"))
+    
+    x <- matrix(c(absText("mean()"), absText("std()")), ncol = nrow(y))
+    dt$featVariable <- factor(x %*% y, labels = c("Mean", "Std"))
+    
+C. Feature with 3 categories
+    n <- 3
+    y <- matrix(seq(1, n), nrow = n)
+    
+    x <- matrix(c(absText("-X"), absText("-Y"), absText("-Z")), ncol = nrow(y))
+    dt$featAxis <- factor(x %*% y, labels = c(NA, "X", "Y", "Z"))
+    
+    
+Calculate average and assign the tidy date to 2nd data set
+----------------------------------------------------------
+    
+    setkey(dt, subject, activityName, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
+    dt1 <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
+
+    
