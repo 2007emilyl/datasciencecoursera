@@ -58,9 +58,8 @@ str(dt1)
 
 key(dt1)
 
-> [1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk" 
-
-> [7] "featMagnitude"    "featVariable"     "featAxis" 
+ [1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk" 
+ [7] "featMagnitude"    "featVariable"     "featAxis" 
 
 
 Summary of variables
@@ -68,34 +67,21 @@ Summary of variables
 
 summary(dt1)
 
-> subject                 activityName  featDomain  featAcceleration       featInstrument featJerk      featMagnitude 
-
->  Min.   : 1.0   LAYING            :1980   Time:7200   NA     :4680     Accelerometer:7200   NA  :7200   NA       :8640  
- 
->  1st Qu.: 8.0   SITTING           :1980   Freq:4680   Body   :5760     Gyroscope    :4680   Jerk:4680   Magnitude:3240  
- 
-> Median :15.5   STANDING          :1980               Gravity:1440                 
- 
-> Mean   :15.5   WALKING           :1980                    
- 
-> 3rd Qu.:23.0   WALKING_DOWNSTAIRS:1980 
- 
-> Max.   :30.0   WALKING_UPSTAIRS  :1980                                                                                 
+ subject                 activityName  featDomain  featAcceleration       featInstrument featJerk      featMagnitude 
+  Min.   : 1.0   LAYING            :1980   Time:7200   NA     :4680     Accelerometer:7200   NA  :7200   NA       :8640  
+  1st Qu.: 8.0   SITTING           :1980   Freq:4680   Body   :5760     Gyroscope    :4680   Jerk:4680   Magnitude:3240  
+ Median :15.5   STANDING          :1980               Gravity:1440                 
+ Mean   :15.5   WALKING           :1980                    
+ 3rd Qu.:23.0   WALKING_DOWNSTAIRS:1980 
+ Max.   :30.0   WALKING_UPSTAIRS  :1980                                                                                 
  
  
-> featVariable featAxis      count          average
- 
- 
-> Mean:5940    NA:3240   Min.   :36.00   Min.   :-0.99767
- 
-> Std :5940    X :2880   1st Qu.:49.00   1st Qu.:-0.96205
- 
->              Y :2880   Median :54.50   Median :-0.46989  
-              
->              Z :2880   Mean   :57.22   Mean   :-0.48436  
-              
->                        3rd Qu.:63.25   3rd Qu.:-0.07836 
-                        
+ featVariable featAxis      count          average
+ Mean:5940    NA:3240   Min.   :36.00   Min.   :-0.99767
+ Std :5940    X :2880   1st Qu.:49.00   1st Qu.:-0.96205
+              Y :2880   Median :54.50   Median :-0.46989
+              Z :2880   Mean   :57.22   Mean   :-0.48436
+                        3rd Qu.:63.25   3rd Qu.:-0.07836 
                         Max.   :95.00   Max.   : 0.97451 
 
 
@@ -118,12 +104,3 @@ dt1
     4:    50 -0.87354387
     5:    50 -0.95109044                 
 
-head(dt1)
-
-   subject activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis count     average
-1:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        X    50 -0.01655309
-2:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Y    50 -0.06448612
-3:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z    50  0.14868944
-4:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        X    50 -0.87354387
-5:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Y    50 -0.95109044
-6:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Z    50 -0.90828466
