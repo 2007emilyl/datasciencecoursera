@@ -13,18 +13,18 @@ Here are the data for the project:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-run_analysis.R will do the following:
-
-> 1. Merges the training and the test sets to create one data set.
-> 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-> 3. Uses descriptive activity names to name the activities in the data set.
-> 4. Appropriately labels the data set with descriptive variable names.
-> 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+run_analysis.R does the following:
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set.
+4. Appropriately labels the data set with descriptive variable names.
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 
 
 Get the data
 ------------
 Download the file. Put it in the folder and unzip the file under folder "D:/MyCourse/.../Project/UCI HAR Dataset".
+
 
 Read the files
 --------------
@@ -40,6 +40,7 @@ read training and test data sets
     TrainY <- data.table(read.table(file.path(path, "train", "y_train.txt")))
     TrainS <- data.table(read.table(file.path(path, "train", "subject_train.txt")))
 
+
 Merge the training and the test sets to one data set
 ----------------------------------------------------
 Concatenate the data tables
@@ -49,7 +50,7 @@ Concatenate the data tables
     Total_X <- rbind(TrainX, TestX)
     
     names(Total_S)<- c("subject") 
-    names(Total_Y)<- c("activity")
+    names(Total_Y)<- c("activityNo")
     
 Merge columns
 
@@ -58,18 +59,15 @@ Merge columns
 
 Set key
 
-    setkey(dataAll, subject, activity)
+    setkey(dataAll, subject, activityNo)
 
 
 Extract only the mean and standard deviation
 --------------------------------------------
 Read the `features.txt` file. This tells which variables in `dataAll` are measurements for the mean and standard deviation.
-    
+
     f <- data.table(read.table(file.path(path, "features.txt")))
     names(f) <- c("feaNo","feaName")
-    
-Extract the mean and std features only
-    
     f <- f[grepl("mean\\(\\)|std\\(\\)", f$feaName]
     
 Add col stored colname for mapping merged data set 
@@ -80,9 +78,13 @@ Subset these variables using variable names.
     
     select <- c(key(dataAll), f$feaCode)
     dataAll <- dataAll[, select, with = FALSE]
-
     
 Use descriptive activity names
-------------------------------
-
-Read `activity_labels.txt` file. This will be used to add descriptive names to the activities.
+    
+    act_label <- data.table(read.table(file.path(path, "activity_labels.txt")))
+    names(act_label) <- c("activityNo", "activityName")
+    
+Label with descriptive activity names
+    
+    dataAll <- merge(dataAll, act_label, by = "activityNum", all.x = TRUE)
+	
