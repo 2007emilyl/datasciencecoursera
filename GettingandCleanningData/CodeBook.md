@@ -58,8 +58,8 @@ str(dt1)
 
 key(dt1)
 
- [1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk" 
- [7] "featMagnitude"    "featVariable"     "featAxis" 
+        [1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk" 
+        [7] "featMagnitude"    "featVariable"     "featAxis" 
 
 
 Summary of variables
@@ -67,13 +67,13 @@ Summary of variables
 
 summary(dt1)
 
- subject                 activityName  featDomain  featAcceleration       featInstrument featJerk      featMagnitude 
-  Min.   : 1.0   LAYING            :1980   Time:7200   NA     :4680     Accelerometer:7200   NA  :7200   NA       :8640  
-  1st Qu.: 8.0   SITTING           :1980   Freq:4680   Body   :5760     Gyroscope    :4680   Jerk:4680   Magnitude:3240  
- Median :15.5   STANDING          :1980               Gravity:1440                 
- Mean   :15.5   WALKING           :1980                    
- 3rd Qu.:23.0   WALKING_DOWNSTAIRS:1980 
- Max.   :30.0   WALKING_UPSTAIRS  :1980                                                                                 
+        subject                 activityName  featDomain  featAcceleration       featInstrument featJerk      featMagnitude 
+        Min.   : 1.0   LAYING            :1980   Time:7200   NA     :4680     Accelerometer:7200   NA  :7200   NA       :8640  
+        1st Qu.: 8.0   SITTING           :1980   Freq:4680   Body   :5760     Gyroscope    :4680   Jerk:4680   Magnitude:3240  
+        Median :15.5   STANDING          :1980               Gravity:1440                 
+        Mean   :15.5   WALKING           :1980                    
+        3rd Qu.:23.0   WALKING_DOWNSTAIRS:1980 
+        Max.   :30.0   WALKING_UPSTAIRS  :1980                                                                                 
  
  
  featVariable featAxis      count          average
