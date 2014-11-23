@@ -135,6 +135,7 @@ B. Feature with 2 categories
     dt$featVariable <- factor(x %*% y, labels = c("Mean", "Std"))
     
 C. Feature with 3 categories
+    
     n <- 3
     y <- matrix(seq(1, n), nrow = n)
     
