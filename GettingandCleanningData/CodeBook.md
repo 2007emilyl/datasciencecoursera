@@ -1,8 +1,8 @@
 Codebook
 ========
 
-Variable list and descriptions
-------------------------------
+List and description of variables
+---------------------------------
 
 Variable name    | Description
 -----------------|-------------
@@ -19,7 +19,7 @@ count        | Feature: Count of data points
 average      | Feature: Average of each variable for each activity and each subject
 
 
-Dataset structure
+Structure of data
 -----------------
 
 str(dt1)
@@ -40,7 +40,7 @@ str(dt1)
          - attr(*, ".internal.selfref")=<externalptr> 
          
 
-9 Key variables in the data table
+Key variables of the data table
 -------------------------------
 
 key(dt1)
@@ -72,8 +72,8 @@ summary(dt1)
                                Max.   :95.00   Max.   : 0.97451 
 
 
-Show a few rows of the dataset
-------------------------------
+Few rows of the dataset
+-----------------------
 
 dt1
 
