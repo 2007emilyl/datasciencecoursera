@@ -74,22 +74,15 @@ summary(dt1)
 
 Show a few rows of the dataset
 ------------------------------
-dt1
+head(dt1)
 
-        subject     activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis
-    1:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        X
-    2:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Y
-    3:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z
-    4:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        X
-    5:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        Y                                                                                                                
-
-
-        count     average
-    1:    50 -0.01655309
-    2:    50 -0.06448612
-    3:    50  0.14868944
-    4:    50 -0.87354387
-    5:    50 -0.95109044                 
+           subject activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis count     average
+        1:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        X    50 -0.01655309
+        2:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Y    50 -0.06448612
+        3:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z    50  0.14868944
+        4:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        X    50 -0.87354387
+        5:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Y    50 -0.95109044
+        6:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Z    50 -0.90828466           
 
 tail(dt1)
 
@@ -100,3 +93,19 @@ tail(dt1)
         4:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Z    65 -0.7847539
         5:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude         Mean       NA    65 -0.5497849
         6:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude          Std       NA    65 -0.5808781
+
+
+dt1
+
+               subject     activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis count     average
+            1:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        X    50 -0.01655309
+            2:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Y    50 -0.06448612
+            3:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z    50  0.14868944
+            4:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        X    50 -0.87354387
+            5:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        Y    50 -0.95109044
+           ---                                                                                                                                   
+        11876:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        X    65 -0.56156521
+        11877:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Y    65 -0.61082660
+        11878:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Z    65 -0.78475388
+        11879:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude         Mean       NA    65 -0.54978489
+        11880:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude          Std       NA    65 -0.58087813
