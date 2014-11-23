@@ -146,6 +146,10 @@ Calculate average and assign the tidy date to 2nd data set
 ----------------------------------------------------------
     
     setkey(dt, subject, activityName, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
+    
     dt1 <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
+    
+# export data set to .txt
+# write.table(dt1, file = "dt1.txt",row.names = FALSE)
 
     
