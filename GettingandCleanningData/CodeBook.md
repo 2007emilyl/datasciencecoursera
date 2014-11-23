@@ -109,11 +109,7 @@ dt1
     3:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z
     4:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        X
     5:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        Y                                                                                                                
-11876:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        X
-11877:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Y
-11878:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Z
-11879:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude         Mean       NA
-11880:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude          Std       NA
+
 
         count     average
     1:    50 -0.01655309
@@ -121,8 +117,13 @@ dt1
     3:    50  0.14868944
     4:    50 -0.87354387
     5:    50 -0.95109044                 
-11876:    65 -0.56156521
-11877:    65 -0.61082660
-11878:    65 -0.78475388
-11879:    65 -0.54978489
-11880:    65 -0.58087813
+
+head(dt1)
+
+   subject activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis count     average
+1:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        X    50 -0.01655309
+2:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Y    50 -0.06448612
+3:       1       LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z    50  0.14868944
+4:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        X    50 -0.87354387
+5:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Y    50 -0.95109044
+6:       1       LAYING       Time               NA      Gyroscope       NA            NA          Std        Z    50 -0.90828466
