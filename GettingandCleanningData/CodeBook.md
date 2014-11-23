@@ -22,10 +22,12 @@ average      | Feature: Average of each variable for each activity and each subj
 Dataset structure
 -----------------
 
-> str(dt1)
+>> str(dt1)
 
 >> Classes 'data.table' and 'data.frame':        11880 obs. of  11 variables:
+
 >> $ subject         : int  1 1 1 1 1 1 1 1 1 1 ...
+
 >> $ activityName    : Factor w/ 6 levels "LAYING","SITTING",..: 1 1 1 1 1 1 1 1 1 1 ...
 >> $ featDomain      : Factor w/ 2 levels "Time","Freq": 1 1 1 1 1 1 1 1 1 1 ...
 >> $ featAcceleration: Factor w/ 3 levels NA,"Body","Gravity": 1 1 1 1 1 1 1 1 1 1 ...
