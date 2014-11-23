@@ -27,14 +27,14 @@ run_analysis <- function(){
     Total_X <- rbind(TrainX, TestX)
     
     names(Total_S)<- c("subject")
-    names(Total_Y)<- c("activity")
+    names(Total_Y)<- c("activityNo")
     
     dataSubject <- cbind(Total_S, Total_Y)
     dataAll <- cbind(dataSubject, Total_X)
     
     # set key to the data table
     
-    setkey(dataAll, subject, activity)
+    setkey(dataAll, subject, activityNo)
     
     # Extract only the mean and standard deviation
     
@@ -56,5 +56,12 @@ run_analysis <- function(){
     
     # Use descriptive activity names
     
+    act_label <- data.table(read.table(file.path(path, "activity_labels.txt")))
+    names(act_label) <- c("activityNo", "activityName")
     
+    # Label with descriptive activity names
+    
+    dataAll <- merge(dataAll, act_label, by = "activityNum", all.x = TRUE)
+    
+    # 
     
