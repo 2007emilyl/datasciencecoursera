@@ -109,7 +109,7 @@ dt1
     3:       1           LAYING       Time               NA      Gyroscope       NA            NA         Mean        Z
     4:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        X
     5:       1           LAYING       Time               NA      Gyroscope       NA            NA          Std        Y
-   ---                                                                                                                 
+                                                                                                                
 11876:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        X
 11877:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Y
 11878:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Z
@@ -122,7 +122,7 @@ dt1
     3:    50  0.14868944
     4:    50 -0.87354387
     5:    50 -0.95109044
-   ---                  
+                 
 11876:    65 -0.56156521
 11877:    65 -0.61082660
 11878:    65 -0.78475388
