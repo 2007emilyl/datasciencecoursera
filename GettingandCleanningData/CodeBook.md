@@ -29,23 +29,37 @@ Dataset structure
 >> $ subject         : int  1 1 1 1 1 1 1 1 1 1 ...
 
 >> $ activityName    : Factor w/ 6 levels "LAYING","SITTING",..: 1 1 1 1 1 1 1 1 1 1 ...
+
 >> $ featDomain      : Factor w/ 2 levels "Time","Freq": 1 1 1 1 1 1 1 1 1 1 ...
+
 >> $ featAcceleration: Factor w/ 3 levels NA,"Body","Gravity": 1 1 1 1 1 1 1 1 1 1 ...
+
 >> $ featInstrument  : Factor w/ 2 levels "Accelerometer",..: 2 2 2 2 2 2 2 2 2 2 ...
+
 >> $ featJerk        : Factor w/ 2 levels NA,"Jerk": 1 1 1 1 1 1 1 1 2 2 ...
+
 >> $ featMagnitude   : Factor w/ 2 levels NA,"Magnitude": 1 1 1 1 1 1 2 2 1 1 ...
+
 >> $ featVariable    : Factor w/ 2 levels "Mean","Std": 1 1 1 2 2 2 1 2 1 1 ...
+
 >> $ featAxis        : Factor w/ 4 levels NA,"X","Y","Z": 2 3 4 2 3 4 1 1 2 3 ...
+
 >> $ count           : int  50 50 50 50 50 50 50 50 50 50 ...
+
 >> $ average         : num  -0.0166 -0.0645 0.1487 -0.8735 -0.9511 ...
+
 >> - attr(*, "sorted")= chr  "subject" "activityName" "featDomain" "featAcceleration" ...
+
 >> - attr(*, ".internal.selfref")=<externalptr>
 
 
 List the key variables in the data table
 ----------------------------------------
-> key(dt1)
-[1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk"        
+
+>> > key(dt1)
+
+[1] "subject"          "activityName"     "featDomain"       "featAcceleration" "featInstrument"   "featJerk" 
+
 [7] "featMagnitude"    "featVariable"     "featAxis" 
 
 
