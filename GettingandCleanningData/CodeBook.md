@@ -24,34 +24,21 @@ Dataset structure
 
 str(dt1)
 
-> Classes 'data.table' and 'data.frame':        11880 obs. of  11 variables:
-
-> $ subject         : int  1 1 1 1 1 1 1 1 1 1 ...
-
-> $ activityName    : Factor w/ 6 levels "LAYING","SITTING",..: 1 1 1 1 1 1 1 1 1 1 ...
-
-> $ featDomain      : Factor w/ 2 levels "Time","Freq": 1 1 1 1 1 1 1 1 1 1 ...
-
-> $ featAcceleration: Factor w/ 3 levels NA,"Body","Gravity": 1 1 1 1 1 1 1 1 1 1 ...
-
-> $ featInstrument  : Factor w/ 2 levels "Accelerometer",..: 2 2 2 2 2 2 2 2 2 2 ...
-
-> $ featJerk        : Factor w/ 2 levels NA,"Jerk": 1 1 1 1 1 1 1 1 2 2 ...
-
-> $ featMagnitude   : Factor w/ 2 levels NA,"Magnitude": 1 1 1 1 1 1 2 2 1 1 ...
-
-> $ featVariable    : Factor w/ 2 levels "Mean","Std": 1 1 1 2 2 2 1 2 1 1 ...
-
-> $ featAxis        : Factor w/ 4 levels NA,"X","Y","Z": 2 3 4 2 3 4 1 1 2 3 ...
-
-> $ count           : int  50 50 50 50 50 50 50 50 50 50 ...
-
-> $ average         : num  -0.0166 -0.0645 0.1487 -0.8735 -0.9511 ...
-
-> - attr(*, "sorted")= chr  "subject" "activityName" "featDomain" "featAcceleration" ...
-
-> - attr(*, ".internal.selfref")=<externalptr>
-
+        Classes 'data.table' and 'data.frame':        11880 obs. of  11 variables:
+         $ subject         : int  1 1 1 1 1 1 1 1 1 1 ...
+         $ activityName    : Factor w/ 6 levels "LAYING","SITTING",..: 1 1 1 1 1 1 1 1 1 1 ...
+         $ featDomain      : Factor w/ 2 levels "Time","Freq": 1 1 1 1 1 1 1 1 1 1 ...
+         $ featAcceleration: Factor w/ 3 levels NA,"Body","Gravity": 1 1 1 1 1 1 1 1 1 1 ...
+         $ featInstrument  : Factor w/ 2 levels "Accelerometer",..: 2 2 2 2 2 2 2 2 2 2 ...
+         $ featJerk        : Factor w/ 2 levels NA,"Jerk": 1 1 1 1 1 1 1 1 2 2 ...
+         $ featMagnitude   : Factor w/ 2 levels NA,"Magnitude": 1 1 1 1 1 1 2 2 1 1 ...
+         $ featVariable    : Factor w/ 2 levels "Mean","Std": 1 1 1 2 2 2 1 2 1 1 ...
+         $ featAxis        : Factor w/ 4 levels NA,"X","Y","Z": 2 3 4 2 3 4 1 1 2 3 ...
+         $ count           : int  50 50 50 50 50 50 50 50 50 50 ...
+         $ average         : num  -0.0166 -0.0645 0.1487 -0.8735 -0.9511 ...
+         - attr(*, "sorted")= chr  "subject" "activityName" "featDomain" "featAcceleration" ...
+         - attr(*, ".internal.selfref")=<externalptr> 
+         
 
 9 Key variables in the data table
 -------------------------------
@@ -76,13 +63,13 @@ summary(dt1)
         Max.   :30.0   WALKING_UPSTAIRS  :1980                                                                                 
  
  
- featVariable featAxis      count          average
- Mean:5940    NA:3240   Min.   :36.00   Min.   :-0.99767
- Std :5940    X :2880   1st Qu.:49.00   1st Qu.:-0.96205
-              Y :2880   Median :54.50   Median :-0.46989
-              Z :2880   Mean   :57.22   Mean   :-0.48436
-                        3rd Qu.:63.25   3rd Qu.:-0.07836 
-                        Max.   :95.00   Max.   : 0.97451 
+        featVariable featAxis      count          average
+        Mean:5940    NA:3240   Min.   :36.00   Min.   :-0.99767
+        Std :5940    X :2880   1st Qu.:49.00   1st Qu.:-0.96205
+                     Y :2880   Median :54.50   Median :-0.46989
+                     Z :2880   Mean   :57.22   Mean   :-0.48436
+                               3rd Qu.:63.25   3rd Qu.:-0.07836 
+                               Max.   :95.00   Max.   : 0.97451 
 
 
 Show a few rows of the dataset
@@ -104,3 +91,12 @@ dt1
     4:    50 -0.87354387
     5:    50 -0.95109044                 
 
+tail(dt1)
+
+           subject     activityName featDomain featAcceleration featInstrument featJerk featMagnitude featVariable featAxis count    average
+        1:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA         Mean        Z    65 -0.7378039
+        2:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        X    65 -0.5615652
+        3:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Y    65 -0.6108266
+        4:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk            NA          Std        Z    65 -0.7847539
+        5:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude         Mean       NA    65 -0.5497849
+        6:      30 WALKING_UPSTAIRS       Freq             Body  Accelerometer     Jerk     Magnitude          Std       NA    65 -0.5808781
